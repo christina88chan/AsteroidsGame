@@ -20,4 +20,8 @@ public class Asteroid extends Floater{
    noFill();
    super.show(); 
   }
+  public void setCenterX(int x){myCenterX = x;}
+  public int getCenterX() {return (int)myCenterX;}
+  public void setCenterY(int y){myCenterY = y;}
+  public int getCenterY() {return (int)myCenterY;}
 }
