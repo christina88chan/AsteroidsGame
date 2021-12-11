@@ -9,7 +9,7 @@ public void setup(){
   for(int i = 0; i < sue.length; i++){
   sue[i] = new Star();
   }
-  for(int i = 0; i < 10; i++){
+  for(int i = 0; i < 8; i++){
       asteroids.add(new Asteroid());
   }
 }
