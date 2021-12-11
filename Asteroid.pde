@@ -21,7 +21,7 @@ public class Asteroid extends Floater{
    super.show(); 
   }
   public void setCenterX(int x){myCenterX = x;}
-  public int getCenterX() {return (int)myCenterX;}
+  public int getX() {return (int)myCenterX;}
   public void setCenterY(int y){myCenterY = y;}
-  public int getCenterY() {return (int)myCenterY;}
+  public int getY() {return (int)myCenterY;}
 }
