@@ -1,5 +1,6 @@
 Spaceship lisha; 
 Star [] sue;
+ArrayList <Bullet> shots = new ArrayList<Bullet>();
 ArrayList <Asteroid> asteroids = new ArrayList<Asteroid>();
 public void setup(){
   size(400,400);
@@ -15,6 +16,8 @@ public void setup(){
 
 public void draw(){
   background(0);
+  lisha.move();
+  lisha.show();
   for(int i = 0; i < sue.length; i++){
      sue[i].show();
   }
@@ -22,11 +25,13 @@ public void draw(){
       asteroids.get(i).move();
       asteroids.get(i).show();
       float d = dist(lisha.getX(), lisha.getY(), asteroids.get(i).getX(), asteroids.get(i).getX());
-      if(d < 10)
+      if(d < 5)
         asteroids.remove(i);
   }
-    lisha.move();
-    lisha.show();
+    for(int i = 0; i < shots.size(); i++){
+      shots.get(i).move();
+      shots.get(i).show();
+    }
  }
 
   public void keyPressed(){
@@ -43,9 +48,6 @@ public void draw(){
     lisha.accelerate(-2);
    }
    if(key == ' '){
-     lisha.setCenterX((int)(Math.random()*400));
-     lisha.setCenterY((int)(Math.random()*400));
-     lisha.setSpeedX(0);
-     lisha.setSpeedY(0);
+     shots.add(new Bullet(lisha));
    }
 }
