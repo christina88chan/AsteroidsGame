@@ -7,8 +7,8 @@
     myFillColor = color(191, 187, 214);
     myCenterX = 250;
     myCenterY = 250;
-    myXspeed = 1; 
-    myYspeed = 1;
+    myXspeed = 0.1; 
+    myYspeed = 0.1;
     myPointDirection = 270;
   }
   public void setCenterX(int n){myCenterX = n;}
