@@ -1,24 +1,16 @@
-Spaceship[] fleet = new Spaceship[3];
+Spaceship lisha; 
 Star [] sue;
 ArrayList <Asteroid> asteroids = new ArrayList<Asteroid>();
 public void setup(){
   size(400,400);
+  lisha = new Spaceship();
   sue  = new Star[150];
   for(int i = 0; i < sue.length; i++){
   sue[i] = new Star();
   }
-  for(int i = 0; i < 6; i++){
+  for(int i = 0; i < 10; i++){
       asteroids.add(new Asteroid());
   }
-  for(int i = 0; i < fleet.length; i++){
-    fleet[i] = new Spaceship();
-  }
-  fleet[0].setCenterX(fleet[0].getCenterX());
-  fleet[1].setCenterX(fleet[0].getCenterX()+25);
-  fleet[2].setCenterX(fleet[0].getCenterX()-25);
-  fleet[0].setCenterY(fleet[0].getCenterY());
-  fleet[1].setCenterY(fleet[0].getCenterY()+30);
-  fleet[2].setCenterY(fleet[0].getCenterY()+30);
 }
 
 public void draw(){
@@ -29,44 +21,31 @@ public void draw(){
   for(int i = 0; i < asteroids.size(); i++){
       asteroids.get(i).move();
       asteroids.get(i).show();
+      float d = dist(lisha.getX(), lisha.getY(), asteroids.get(i).getX(), asteroids.get(i).getX());
+      if(d < 10)
+        asteroids.remove(i);
   }
-  for(int i = 0; i < fleet.length; i++){
-    fleet[i].move();
-    fleet[i].show();
-  }
+    lisha.move();
+    lisha.show();
  }
 
   public void keyPressed(){
    if(key == 'a'){
-    for(int i = 0; i < fleet.length; i++){
-    fleet[i].turn(-8);
-    }
+    lisha.turn(-10);
    }
    if(key == 'd'){
-     for(int i = 0; i < fleet.length; i++){
-    fleet[i].turn(8);
-    } 
+    lisha.turn(10);
    }
    if(key == 'w'){
-    for(int i = 0; i < fleet.length; i++){
-    fleet[i].accelerate(0.5);
-    } 
+    lisha.accelerate(2);
    }
    if(key == 's'){
-    for(int i = 0; i < fleet.length; i++){
-    fleet[i].accelerate(-0.5);
-    } 
+    lisha.accelerate(-2);
    }
    if(key == ' '){
-     for(int i = 0; i < fleet.length; i++){
-     fleet[0].setCenterX((int)(Math.random()*400));
-     fleet[1].setCenterX(fleet[0].getCenterX()+25);
-     fleet[2].setCenterX(fleet[0].getCenterX()-25);
-     fleet[0].setCenterY((int)(Math.random()*400));
-     fleet[1].setCenterY(fleet[0].getCenterY()+30);
-     fleet[2].setCenterY(fleet[0].getCenterY()+30);
-     fleet[i].setSpeedX(1);
-     fleet[i].setSpeedY(1);
-     }
+     lisha.setCenterX((int)(Math.random()*400));
+     lisha.setCenterY((int)(Math.random()*400));
+     lisha.setSpeedX(0);
+     lisha.setSpeedY(0);
    }
 }
